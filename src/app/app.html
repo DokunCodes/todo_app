@@ -1,0 +1,19 @@
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+
+<ion-menu type="overlay" [content]="content" color='purple'>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>About</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      
+        <ion-content>
+            <ion-list>
+              <p style="text-align:left; padding-left: 10px">This app is used to create daily todos.</p>
+              <p style="text-align:left; padding-left: 10px">Developed by Fidex - 17024616 </p>
+              </ion-list>
+        </ion-content>
+      
+      </ion-menu>
+      
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

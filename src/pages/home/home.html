@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="purple">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+      My Daily Todos
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)"> 
+
+      <ion-item-sliding *ngFor="let item of items">
+          <ion-item (click)="viewItem(item)"><ion-icon color="danger" name="alarm"></ion-icon> &nbsp;{{item.title}}
+            <span class="due">Task Due By: {{item.duetime}}</span>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button (click)="updateItem(item)" color="primary" icon-start>
+              <ion-icon ios="ios-create" md="md-create"></ion-icon>
+              Update
+            </button>
+            <button ion-button (click)="deleteItem(item)" color="secondary" icon-start>
+                <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+                Completed
+              </button>
+          </ion-item-options>
+          <ion-item-options side="left">
+              <button ion-button (click)="deleteItem(item)" color="danger" icon-start>
+                  <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                Delete
+              </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+  </ion-list>
+
+
+</ion-content>
